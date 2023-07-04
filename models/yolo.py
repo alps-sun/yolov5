@@ -73,8 +73,45 @@ class Detect(nn.Module):
                     xy, wh, conf = x[i].sigmoid().split((2, 2, self.nc + 1), 4)
                     xy = (xy * 2 + self.grid[i]) * self.stride[i]  # xy
                     wh = (wh * 2) ** 2 * self.anchor_grid[i]  # wh
+                    # xy 是中心点
+                    # wh 是宽高
+                    # conf 是confidence 可信度
+
+                    # ###  start
+                    # xy[..., 0] = 1  # 设置为特殊值， 输出时可知是x
+                    # xy[..., 1] = 2  # 设置为特殊值， 输出时可知是y
+                    # wh[..., 0] = 3  # 设置为特殊值， 输出时可知是w
+                    # wh[..., 1] = 4  # 设置为特殊值， 输出时可知是h
+                    # conf[..., :] = 5  # 设置为特殊值， 输出时可知是conf, 总共80 个分类
+
+                    ###  end
                     y = torch.cat((xy, wh, conf), 4)
+
+                yy = y.view(bs, self.na * nx * ny, self.no)
+                row = yy[:, 0, :] # 取第一行数据进行查看 85 个元素
+                print(row)
+
+                # bs == batch size 多少张图片个数
+                # self.nc == number of class 多少种分类
+                # self.na == number of anchors 锚点数量
+                # self.no == number of outputs per anchor 每个锚点的输出数
                 z.append(y.view(bs, self.na * nx * ny, self.no))
+                #                1      14400           85
+                # 实际内部存储仍然是
+                # [[
+                #     [xy1, wh1, conf1, conf2, ..., conf81],
+                #     [xy2, wh2, conf1, conf2, ..., conf81],
+                #     [xy3, wh3, conf1, conf2, ..., conf81],
+                #     ....
+                # ]]
+                # 这里再补充一下，实际内部格式是
+                # [[
+                #     [x1, y1, w1, h1, conf1, conf2, ..., conf81],
+                #     [x2, y2, w2, h2, conf1, conf2, ..., conf81],
+                #     [x3, y3, w3, h3, conf1, conf2, ..., conf81],
+                #     ....
+                # ]]
+
 
         return x if self.training else (torch.cat(z, 1),) if self.export else (torch.cat(z, 1), x)
 
