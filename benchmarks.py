@@ -10,7 +10,7 @@ ONNX                        | `onnx`                        | yolov5s.onnx
 OpenVINO                    | `openvino`                    | yolov5s_openvino_model/
 TensorRT                    | `engine`                      | yolov5s.engine
 CoreML                      | `coreml`                      | yolov5s.mlmodel
-TensorFlow SavedModel       | `saved_model`                 | yolov5s_saved_model/
+TensorFlow SavedModel       | `saved_model`                 | yolov5s_saved_model1/
 TensorFlow GraphDef         | `pb`                          | yolov5s.pb
 TensorFlow Lite             | `tflite`                      | yolov5s.tflite
 TensorFlow Edge TPU         | `edgetpu`                     | yolov5s_edgetpu.tflite

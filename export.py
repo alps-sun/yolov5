@@ -1,4 +1,4 @@
-# YOLOv5 🚀 by Ultralytics, AGPL-3.0 license
+ # YOLOv5 🚀 by Ultralytics, AGPL-3.0 license
 """
 Export a YOLOv5 PyTorch model to other formats. TensorFlow exports authored by https://github.com/zldrobit
 
@@ -10,7 +10,7 @@ ONNX                        | `onnx`                        | yolov5s.onnx
 OpenVINO                    | `openvino`                    | yolov5s_openvino_model/
 TensorRT                    | `engine`                      | yolov5s.engine
 CoreML                      | `coreml`                      | yolov5s.mlmodel
-TensorFlow SavedModel       | `saved_model`                 | yolov5s_saved_model/
+TensorFlow SavedModel       | `saved_model`                 | yolov5s_saved_model1/
 TensorFlow GraphDef         | `pb`                          | yolov5s.pb
 TensorFlow Lite             | `tflite`                      | yolov5s.tflite
 TensorFlow Edge TPU         | `edgetpu`                     | yolov5s_edgetpu.tflite
@@ -31,7 +31,7 @@ Inference:
                                  yolov5s_openvino_model     # OpenVINO
                                  yolov5s.engine             # TensorRT
                                  yolov5s.mlmodel            # CoreML (macOS-only)
-                                 yolov5s_saved_model        # TensorFlow SavedModel
+                                 yolov5s_saved_model1        # TensorFlow SavedModel
                                  yolov5s.pb                 # TensorFlow GraphDef
                                  yolov5s.tflite             # TensorFlow Lite
                                  yolov5s_edgetpu.tflite     # TensorFlow Edge TPU

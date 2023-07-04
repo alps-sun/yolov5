@@ -21,7 +21,7 @@ Usage - formats:
                                  yolov5s_openvino_model     # OpenVINO
                                  yolov5s.engine             # TensorRT
                                  yolov5s.mlmodel            # CoreML (macOS-only)
-                                 yolov5s_saved_model        # TensorFlow SavedModel
+                                 yolov5s_saved_model1        # TensorFlow SavedModel
                                  yolov5s.pb                 # TensorFlow GraphDef
                                  yolov5s.tflite             # TensorFlow Lite
                                  yolov5s_edgetpu.tflite     # TensorFlow Edge TPU
